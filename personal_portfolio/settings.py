@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'd!d#v8vy9dc&#wbyht9x7)l!qa$j(e%nz!1%69n*-_o8g_l1dv'
+SECRET_KEY = '!_1c2@2aey1m(sfn$i+s5ci-(^opnef$y3n4$(o85y(8q8jjni'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['arman-portfolio.herokuapp.com', '127.0.0.1/projects']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -39,12 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'projects',
     'blog',
-
+    'about_me'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -58,7 +57,9 @@ ROOT_URLCONF = 'personal_portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["personal_portfolio/templates/"],
+        'DIRS': ["personal_portfolio/templates/",
+                "personal_portfolio/static/images/"
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,4 +123,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
